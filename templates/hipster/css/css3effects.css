@@ -1,0 +1,886 @@
+/**
+ * @version		1.0.2
+ * @package		Hipster template for Joomla! 3.x
+ * @author		JoomlaXTC http://www.joomlaxtc.com
+ * @copyright	Copyright (C) 2014 Monev Software LLC. All rights reserved.
+ * @license		http://www.joomlaxtc.com/license JoomlaXTC Proprietary Use License
+ */
+/* ----------------------------------------------*/
+/* C 00 - CSS3 Hover Effects
+/* ----------------------------------------------*/
+<?php if ($params->css3hoverfx) { ?>
+#menuwrap ul.menu li.parent > ul,#menuwrap ul.menu li.parent > ul > li,#headerwrap, body.sticky #headerwrap, .contactbutton, .search_menu_btn, .social a,.ca-main,ul.menu.iconside li,ul.menu.iconside li:hover,.info:hover,.k2wall_introtext,.article_header,.article_header span,.article_text,.k2media_wrap_right,.k2media_wrap_left,.itemImageGallery .imagegalleryplg img,.opac,.eventwrap img,.buttonleft,.buttonright,.buttonright a:hover,.buttonleft a:hover,.newswrap h4.newswrapmore a,.newswrap h4.newswrapmore,.catItemImage img:hover,.catItemImage:hover,.imagepe img:hover,.newitemwrap, a.article-intro-btn, .categorywrap .main, .categorywrap .more, .articletext .morelink, .articletext .morelink:hover, .categorywrap-right .main .articlemain .morelink, .categorywrap-right .main .articlemain .morelink:hover, .categorywrap-left .main .articlemain .morelink, .categorywrap-left .main .articlemain .morelink:hover,.categorywrap-right .more .articlemore:hover, .categorywrap-right .more .articlemore, .categorywrap-left .more .articlemore, .categorywrap-left .more .articlemore:hover,.vmcatwrap a.product-details:hover, .vmhpcatwrap a.product-details:hover, #header ul.menu > li > a,.orderlist {
+	     -webkit-transition-property: <?php echo $params->hovertp;?>;
+		-moz-transition-property: <?php echo $params->hovertp;?>;
+		-o-transition-property: <?php echo $params->hovertp;?>;
+		-ms-transition-property: <?php echo $params->hovertp;?>;
+		transition-property: <?php echo $params->hovertp;?>;
+		-webkit-transition-duration: <?php echo $params->hoverfadespeed;?>,<?php echo $params->hoverfadespeed;?>;
+		-moz-transition-duration: <?php echo $params->hoverfadespeed;?>,<?php echo $params->hoverfadespeed;?>;
+		-o-transition-duration: <?php echo $params->hoverfadespeed;?>,<?php echo $params->hoverfadespeed;?>;
+		-ms-transition-duration: <?php echo $params->hoverfadespeed;?>, <?php echo $params->hoverfadespeed;?>;
+		transition-duration: <?php echo $params->hoverfadespeed;?>, <?php echo $params->hoverfadespeed;?>;
+		-webkit-transition-timing-function: <?php echo $params->hovertf;?>;
+		-moz-transition-timing-function: <?php echo $params->hovertf;?>;
+		-o-transition-timing-function: <?php echo $params->hovertf;?>;
+		-ms-transition-timing-function: <?php echo $params->hovertf;?>;
+		transition-timing-function: <?php echo $params->hovertf;?>;
+	}
+<?php } ?>
+
+/* ----------------------------------------------*/
+/* C 01 - CSS3 Animated Component
+/* ----------------------------------------------*/
+<?php if ($params->css3animatedblog) { ?>
+.animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:1s;-moz-animation-duration:1s;-ms-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;}
+.animated1{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:0.7s;-moz-animation-duration:0.7s;-ms-animation-duration:0.7s;-o-animation-duration:0.7s;animation-duration:0.7s;
+-moz-animation-delay:0.5s; -webkit-animation-delay:0.5s; -0-animation-delay:0.5s; animation-delay:0.5s;
+-webkit-transition-timing-function: cubic-bezier(0.065, 0.125, 0.185, 0.980);
+   -moz-transition-timing-function: cubic-bezier(0.065, 0.125, 0.185, 0.980);
+     -o-transition-timing-function: cubic-bezier(0.065, 0.125, 0.185, 0.980);
+        transition-timing-function: cubic-bezier(0.065, 0.125, 0.185, 0.980);}
+.animated.hinge{-webkit-animation-duration:1s;-moz-animation-duration:1s;-ms-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;}
+
+<?php 
+	switch ($params->css3animatedstyle) {
+	case 'up':
+	$translate='Y';
+	$translatepx='2000px';
+	break;
+	case 'down':
+	$translate='Y';
+	$translatepx='-2000px';
+	break;
+	case 'right':
+	$translate='X';
+	$translatepx='-2000px';
+	break;
+	case 'left':
+	$translate='X';
+	$translatepx='2000px';
+	break;
+	case 'fade':
+	$translate='X';
+	$translatepx='0px';
+	break;
+} ?>
+
+@-webkit-keyframes anistyle {
+0%   {opacity: 0; -webkit-transform: translate<?php echo $translate;?> (<?php echo $translatepx;?>);}
+100% {opacity: 1;-webkit-transform: translate<?php echo $translate;?>(0);}
+}
+		
+@-moz-keyframes anistyle {
+0% {opacity: 0;	-moz-transform: translate<?php echo $translate;?>(<?php echo $translatepx;?>);}
+100% {opacity: 1;-moz-transform: translate<?php echo $translate;?>(0);}
+}
+	
+@-o-keyframes anistyle {
+0% {opacity: 0;	-o-transform: translate<?php echo $translate;?>(<?php echo $translatepx;?>);}
+100% {opacity: 1;-o-transform: translate<?php echo $translate;?>(0);}
+}
+	
+@keyframes anistyle {
+0% {opacity: 0;transform: translate<?php echo $translate;?>(<?php echo $translatepx;?>);}
+100% {opacity: 1;transform: translate<?php echo $translate;?>(0);}
+}
+	
+.anistyle {
+-webkit-animation-name: anistyle;
+-moz-animation-name: anistyle;
+-o-animation-name: anistyle;
+animation-name: anistyle;
+}	
+<?php } ?>
+
+/* ----------------------------------------------*/
+/* C 03 - CSS3 Responsive Animations
+/* ----------------------------------------------*/
+body  {
+<?php if ( ($xtc->agent->browserName == 'MSIE' && $xtc->agent->browserVersion == '9.0') || !$params->css3fade) { ?>
+	  opacity:1; 
+<?php } else { ?>
+	  opacity:0; 
+<?php } ?>
+    -webkit-animation:fadeIn ease-in 1;  
+       -moz-animation:fadeIn ease-in 1;
+            animation:fadeIn ease-in 1;
+    -webkit-animation-fill-mode:forwards;  
+       -moz-animation-fill-mode:forwards;
+            animation-fill-mode:forwards;
+     -webkit-animation-duration:<?php echo $params->fadespeed;?>;
+        -moz-animation-duration:<?php echo $params->fadespeed;?>;
+             animation-duration:<?php echo $params->fadespeed;?>;
+}
+/* CSS3 Fade In Parameters */
+<?php if ($params->css3fade) { ?>
+	@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	   @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	     @-o-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+	        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+<?php } ?>
+/* Responsive Animation Parameters */
+<?php if ($params->rsanimation) { ?>	
+.span1,.span2,.span3,.span4,.span5,.span6,.span7,.span8,.span9,.span10,.span11,.span12
+ {
+ -webkit-animation-fill-mode:forwards;  
+    -moz-animation-fill-mode:forwards;
+         animation-fill-mode:forwards;
+     -webkit-animation-duration:1s;
+        -moz-animation-duration:1s;
+             animation-duration:1s;
+	 -webkit-transition: width 0.8s ease-in-out;
+	    -moz-transition: width 0.8s ease-in-out;
+          -o-transition: width 0.8s ease-in-out;
+             transition: width 0.8s ease-in-out;
+}
+<?php } ?>
+/* ----------------------------------------------*/
+/* C 05 - Responsive Media Breakpoints
+/* ----------------------------------------------*/
+/* RESPONSIVE PARAMETERS */
+<?php if ($templateParameters->group->grid->responsive) { ?>
+/*  Mobile Device Breakpoints */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+#menuright1 .modulecontent {padding: 0 0 0 0!important;}
+}
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
+#menuright1 .modulecontent {padding: 0 0 0 0!important;}
+}
+@media(max-width:1500px){
+body.sticky {margin-top: 80px!important;}
+.product.floatleft.width25.vertical-separator.vmcatwrap,.product.floatleft.width25.vertical-separator.vmhpcatwrap {margin:0px 29px 22px 0;}
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25,.recent-view .row .width25 {width:22.6%;}
+}
+@media(max-width:1400px){
+.constrainmod {padding-top: 0;}
+.embellishment {text-align:center;width:450px!important;}
+.orderby-displaynumber .width70 {width:50%!important}
+}
+@media(max-width:1280px){
+.constrainmod {padding:0!important;}
+.embellishment {margin: 0 auto!important;}	
+.j2category .row-fluid .span2 {width: 31.623931623931625%; margin-left: 2.12766%!important;float:left!important;}
+.j2category .row-fluid [class*="span"]:first-child, .j2category .row-fluid .gridfirst, .j2category div.span2.xtc-category-col.cols-6.item.column-4 {margin-left: 0% !important;}
+.j2catitem {margin-bottom:20px!important;}
+.product.floatleft.width25.vertical-separator.vmcatwrap, .product.floatleft.width25.vertical-separator.vmhpcatwrap {margin:0px 26px 22px 0;}
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25,.recent-view .row .width25 {width:22.4%;}	
+/* Joomla Content & K2 Padding and Margin Adjustments */
+.span12 .itemJFullText {padding: 0 40px;}
+input[type="radio"] + label {padding:8px 12px!important;}
+.width10.floatright.vmrelated {width:100%!important;}
+.width10.floatright.vmrelated .product-field-display {width: 32%; margin-right: 8px !important;}
+.productdetails .width60 {width:74%!important;}
+#region1wrap .xtc-wrapper, #region2wrap .xtc-wrapper, #region3wrap .xtc-wrapper, #region4wrap .xtc-wrapper, #region5wrap .xtc-wrapper, #region6wrap .xtc-wrapper, #region7wrap .xtc-wrapper, #region8wrap .xtc-wrapper, #region9wrap .xtc-wrapper {padding:0!important}
+.module {margin: 0px 0px 25px!important;}
+#left .module, #right .module {margin: 0px!important}
+h1.vmcat_maintitle, h1.vmcat_maintitle a, h4.vmcat_maintitle, h4.vmcat_maintitle a, .featured-view h4, .latest-view h4, .topten-view h4, .recent-view h4 {
+     margin: 0px 0px 30px !important;}
+}
+@media(max-width:1140px){
+/* Search Input Resize */
+input#mod-search-searchword.inputbox {width:80%!important;}
+input[type="radio"] + label {padding:6px 8px!important;}
+a.ask-a-question {padding: 12px 24px 11px !important;}
+/* J2 Store */
+.j2category .row-fluid .span3 {width: 48.717948717948715%; margin-left: 2.12766%!important;float:left!important;}
+.j2category .row-fluid [class*="span"]:first-child, .j2category .row-fluid .gridfirst, .j2category div.span3.xtc-category-col.cols-4.item.column-3 {margin-left: 0px !important;}
+.j2catHeader {padding: 4px 24px !important;margin: 0px 0px 12px !important;}
+.vm_catname {padding: 18px 16px 0px 18px !important;}
+.orderby-displaynumber {padding: 10px 18px 24px;}
+}
+@media(max-width:1080px){
+.width10.floatright.vmrelated {width:100%!important;}
+.width60.floatleft.vmdetails {width:75%!important;}
+#header ul.menu > li > a, #header ul.menu > li.active > a, #header ul.menu > li:hover > a, span.separator, #header ul.menu > li.parent:hover > a {margin: 0px 6px;padding-right: 6px!important;}
+.productdetails-view {padding:0!important}
+#component {background: #fff; padding:12px!important}
+.orderby-displaynumber {margin: 0 !important;}
+.product.floatleft.width25.vertical-separator.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {margin: 0!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 22.75%!important;padding: 7px!important;}
+h1.vmcat_maintitle, h1.vmcat_maintitle a, h4.vmcat_maintitle, h4.vmcat_maintitle a, .featured-view h4, .latest-view h4, .topten-view h4, .recent-view h4 {
+    padding: 20px 12px !important;  margin: 0px 0px 5px !important;}
+}
+@media screen and (max-width: 980px){
+/* Joomla Content Padding and Margins */
+.leftlarge .items-leading .span6,.leftlarge .items-leading .span3{width:100%;margin-left:0;}
+.leftlarge .items-leading div:first-child + div{margin-left:0;}
+.rightlarge .items-leading .span6,.rightlarge .items-leading .span3{width:100%;margin-left:0;}
+.centerlarge .items-leading .span6,.centerlarge .items-leading .span3{width:100%;margin-left:0;}
+.centerlarge .items-leading div:first-child + div + div{margin-left:0;}
+}
+@media screen and (max-width: 920px){
+.product.floatleft.width25 {padding: 6px!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 22.4%!important;padding: 6px!important;}
+}
+@media screen and (max-width: 900px){
+body.sticky {margin-top: 64px!important;}
+/* Full Width Span Breakpoint */
+.row-fluid [class*="span"] {display: block; width: 100%;margin-left: 0!important;}
+/* Region Padding Adjustments  */	 
+#region1wrap .xtc-fluidwrapper, #region2wrap .xtc-fluidwrapper, #region3wrap .xtc-fluidwrapper, #region4wrap .xtc-fluidwrapper,
+#region5wrap .xtc-fluidwrapper, #region6wrap .xtc-fluidwrapper, #region7wrap .xtc-fluidwrapper, #region8wrap .xtc-fluidwrapper,
+#region8wrap .xtc-fluidwrapper, #region10wrap .xtc-fluidwrapper,
+#region1wrap .xtc-wrapper, #region2wrap .xtc-wrapper, #region3wrap .xtc-wrapper, #region4wrap  .xtc-wrapper,
+#region5wrap .xtc-wrapper, #region6wrap .xtc-wrapper, #region7wrap  .xtc-wrapper, #region8wrap .xtc-wrapper,
+#region9wrap .xtc-wrapper, #region10wrap .xtc-wrapper {padding: 0 !important;}
+.module {margin-bottom:2.5%!important;}
+#component {padding:10px!important;}
+#bottom1,#bottom2,#bottom3,#bottom4,#bottom5,#bottom6  {margin-left: 2.564102564102564%!important; width: 48.717948717948715%!important;float:left!important;text-align:center!important; }
+#region9 ul li {list-style-type:none!important;}
+#region9 .module h3 span {font-weight:normal!important;}
+#bottom1,#bottom3,#bottom5 {margin-left:0!important;}
+#component {margin-bottom:0!important;}
+/* Image Gallery Plugin Width Adjustment */
+.imagegalleryplg img {width:33%!important;}
+/* Search Field Resize */
+input#mod-search-searchword.inputbox {width:100%!important;}
+/* Contact Module Center */
+div.contactwrap {text-align:center;}
+/* Footer Module Center */
+#footer {text-align:center;}
+#menuwrap {float:right!important;}
+/* Joomla Category */
+.xtc-leading .span6,.xtc-leading .span3,.xtc-intro .span3{} 
+input[type="radio"] + label {padding:12px 14px!important;}
+.cart-view .width50 {width:100%!important;float:none!important;margin-bottom:20px!important;}
+#sb-searchwrap {display:none!important;}
+.shoptop .banneritem img {width: 200% !important;max-width: 200% !important;position: relative;left: -47%;}
+.productdetails-view {padding:12px!important;}
+input#modlgn-username.inputbox,input#modlgn-passwd.inputbox {max-width:94%!important;width:100%;min-width:1px!important;}
+.mobilebtn {margin: 0px 0px 0px -8px !important;}
+.constrainmod {padding-top: 80px!important;}
+.embellishment {text-align:center;width:515px!important;}
+#region9 .module h3.moduletitle {padding:20px 0!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 22.7% !important;  padding: 8px !important;}
+}
+@media (max-width: 800px) {
+/* Deluxe NewsPro Adjustments  */
+.articleleft, .articleright, .articleleft p, .articleright p {float:none!important;text-align:center!important;width:90%!important; margin:0 auto!important;}
+DL.search-results {width:95%;}
+.search-searchword {display:none!important;}
+.search .button {margin-top:12px!important;}
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25 {width:47%;}/* fallback for Opera */
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25 {width: calc(50% - 32px);}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap{width: 47%!important; padding: 8px!important;}
+.floatleft {float:left!important;}
+h1.vmcat_maintitle, h1.vmcat_maintitle a, h4.vmcat_maintitle, h4.vmcat_maintitle a,
+.featured-view h4, .latest-view h4, .topten-view h4, .recent-view h4 {
+    padding: 12px 12px !important;
+}
+}
+@media (max-width: 768px) {
+/* Joomla Article */
+h2.article_title a, h2.article_title {font-size:42px!important;}
+.itemJFullText {padding:0px!important;}
+.itemJFullText h2 {font-size:32px!important;}
+/* Joomla Search Text Align, Padding and Resize Adjustments */
+.formwrap,form#finder-search {text-align:left; padding:10px;width:80%; }
+.formwrap, form#finder-search {width:100%!important;}
+/* Image Gallery Resize */
+.imagegalleryplg img {width:50%!important;}
+.width30.floatleft.vmimage {width:50%!important;}
+.width10.floatright.vmrelated  {width:100%;}
+.productdetails-view .spacer-buy-area, .productdetails-view .product-description {padding:0 10px!important;}
+.embellishment {margin:0 auto!important;}
+.sitebadge {width:100%!important;}
+.embellishment p {width:95%!important;}
+.loginformwrap {margin:60px auto 0!important; position:static!important; padding:60px 0;  border:15px solid rgba(0,0,0,0.05); background: rgba(255, 255, 255, 0.5);}
+.width10.floatright.vmrelated .product-field-display {width: 31%!important;}
+.vmformwrap {width:auto!important;padding:0!important;}
+.rl_guest, .rl_guest:hover {margin:0!important; float:none!important;padding: 10px 34px !important;}
+.cart-images {display:none;}
+div.width30.floatleft.scart_name, div.width30.floatleft.cart_name {width:15%;}
+div.width20.floatleft.vmcart_qty, div.width20.floatleft.svmcart_qty {width:30%;}
+.textarea.customer-comment {width:490px!important;height:174px!important;}
+.customer-comment {width:490px!important;height:174px!important;}
+.orderby-displaynumber .width70 {width:65%;}
+.box .modulecontent, .darkbox .modulecontent, .bluebox .modulecontent, .redbox .modulecontent, .greenbox .modulecontent, .orangebox .modulecontent, .purplebox .modulecontent, .yellowbox .modulecontent, .lightbox .modulecontent, .stylebox .modulecontent, .transbox .modulecontent, .basecolor5_box .modulecontent, .basecolor6_box .modulecontent, .basecolor7_box .modulecontent, .basecolor8_box .modulecontent {padding: 20px 20px 30px 20px;}
+.box h3.moduletitle, .darkbox h3.moduletitle, .bluebox h3.moduletitle, .redbox h3.moduletitle, .greenbox h3.moduletitle, .orangebox h3.moduletitle, .purplebox h3.moduletitle, .yellowbox h3.moduletitle, .lightbox h3.moduletitle, .basecolor5_box h3.moduletitle, .basecolor6_box h3.moduletitle, .basecolor7_box h3.moduletitle, .basecolor8_box h3.moduletitle {padding: 20px 0px 0px 20px !important;}
+.orderby-displaynumber {padding:0 10px!important;margin:0 0 15px 0!important;}
+.vm_catname  {margin-bottom:15px!important; padding: 10px 8px 0px 10px !important;}
+.j2catHeader {padding: 0px 10px !important;margin: 0px 0px 10px !important;}
+#footerwrap .xtc-wrapperpad {padding-left:20px;padding-right:20px;}
+}
+@media(max-width:660px){
+.main-image img {margin: 0 auto 30px!important;}
+.product-related-products {text-align:center!important;}
+.product-related-products h4 {text-align:left!important;}
+.product-fields, .product-field-display {margin:0 auto!important;float:none!important;}
+.addtocart-area  .product-field {float:none!important;}
+a.ask-a-question:before {display:none}
+.vmformwrap h1 {font-size: 28px!important;}
+.textarea.customer-comment {width:390px!important;height:174px!important;}
+.customer-comment {width:390px!important;height:174px!important;}
+.fontawesome-icon-list div {width:45%;}
+.constrainmod {padding-top: 10px !important;}
+}
+@media(max-width:620px){
+/* Joomla Category Blog Pagination Hide */
+.pagination-start,.pagination-end,.pagination-prev,.pagination-next {display:none!important;}
+/* Global Component H1,H2,H3,H4,H5,H6 Resize */
+.bottomlogo img {width:200px!important; height:200px!important;}
+.width25.floatleft.vmimage,.width60.floatleft.vmdetails {width:100%!important;float:none;}
+.productdetails-view .spacer-buy-area, .productdetails-view .product-description {padding:0 !important;text-align:center!important;}
+input[type="radio"] + label {padding:12px!important;}
+.floatright,.floatleft,.back-to-category {float:none;}
+#region1wrap .xtc-wrapper {padding:0!important;}
+.embellishment {width:99%!important;}
+span.addtocart-button {width:auto!important; margin-right:10px;}
+#component {padding: 6px !important;}
+span.product-box, span.availability {display:none!important}
+.spacer-buy-area {text-align:center!important;}
+.product-related-products h4 {text-align: center !important; }
+.manufacturer-view-default .width33 {width:100%!important;}
+.width10.floatright.vmrelated .product-field-display {width:31%!important; display:inline-block;float:left!important;}
+.img-fulltext-left, .article-full-left {float:none!important; width:100%!important}
+.rl_guest, .rl_guest:hover {margin: -58px 0px 0px 200px !important; padding: 10px 32px !important;}
+.j2store-product-info .options {text-align:center!important;}
+.article-full-left .article_infos {text-align:center!important;}
+div.cart_title_bar {display:none;}
+.width30.floatleft.scart_name,.width10.floatleft.svmsku,.width20.floatleft.svmcart_qty,.width10.floatleft.vmcart_tax,.width10.floatleft.svmcart_disco,div.width20.floatright.svmcartprice,div.width20.floatright.cartprice,.product-field-type-B,.product-field-type-S,.product-field-type-I {width:100%!important;float:none!important;text-align:center!important;magin-bottom:3px;font-size:18px!important;}
+.width30.floatleft.scart_name,.width10.floatleft.svmsku,.width20.floatleft.svmcart_qty,div.width20.floatright.svmcartprice,div.width20.floatright.cartprice {padding: 5px 0px;}
+div.width20.floatright.cartprice {padding: 0px 0px 5px 0px;}
+.width30.floatleft.scart_name,.cart-view span.PricesalesPrice {font-size:22px!important;font-weight:900;}
+.cart-images {display:block;}
+span.cart-images img {float:none;width:100%;}
+.sectiontableentry1 {background:none!important;padding:20px;border:1px solid #ccc;margin-bottom:12px;}
+.sectiontableentry2 {background:none!important;padding:20px;border:1px solid #ccc;margin-bottom:12px;}
+.orderby-displaynumber .width70,.width30.floatright.display-number {}
+.orderlistcontainer, .orderlistcontainer div.activeOrder, .orderby-displaynumber {}
+.display-number {float:right!important;}
+.Pagination ul {padding: 9px 0px!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 46%!important;}
+.orderby-displaynumber .width70, .orderby-displaynumber .width70 .orderlistcontainer {float:none!important; width:100%!important;}
+.orderby-displaynumber .width70 .orderlistcontainer {margin-bottom:12px!important;}
+.display-number select.inputbox {float:left!important; width:100%!important;display:block!important}
+.virtuemart_search {display:block!important; width:100%!important;}
+.virtuemart_search input {width:91%!important;}
+.virtuemart_search i {padding:8px 0!important; width:6%!important;text-align:center!important}
+}
+@media(max-width:530px){
+.virtuemart_search input {width:90%!important;}
+.virtuemart_search i {width:6%!important;}
+}
+
+@media(max-width:530px){
+.embellishment p {font-size:20px;margin:20px auto 12px!important;}
+.rl_guest i {display:none!important;} 
+}
+@media(max-width:500px){
+.virtuemart_search input {width:87%!important;}
+.virtuemart_search i {width:9%!important;}
+}
+@media(max-width:480px){
+body.sticky {margin-top: 60px!important;}
+.xtc-leading .span6,.xtc-leading .span3,.xtc-intro .span3{float:none;width:100%;}
+/* Joomla Content Print & Email Button Adjustments */
+.cat-item div.action {position:relative!important;right:0px!important;bottom:0px;top:24px;}
+/* Custom HTML Inset Padding Adjustment */
+/* Joomla Content Navigation Padding and Margin Adjustments */
+div.itemNavigation {margin:0px!important;padding:0px!important;}
+.span12 .itemNav_pre,.span11 .itemNav_pre,.span10 .itemNav_pre, .span9 .itemNav_pre,.span8 .itemNav_pre,.span7 .itemNav_pre,.span6 .itemNav_pre,.span5 .itemNav_pre,.span4 .itemNav_pre,.span3 .itemNav_pre,.span2 .itemNav_pre,.span1 .itemNav_pre,	.span12 .itemNav_next,.span11 .itemNav_next,.span10 .itemNav_next, .span9 .itemNav_next,.span8 .itemNav_next,.span7 .itemNav_next,.span6 .itemNav_next,.span5 .itemNav_next,.span4 .itemNav_next,.span3 .itemNav_next,.span2 .itemNav_next,.span1 .itemNav_next {margin-left:0px!important;padding-right:0px;padding-left:0px;}
+.prevnext_style {margin-bottom:72px;}
+/* Joomla Page Title Font Resize */
+h1.pagetitle span {font-size:34px!important;}
+/* Region Padding Resize */	
+.articleright p, .articleleft p {font-size:16px!important;}	
+.articleright h2, .articleleft h2 {font-size:36px!important;margin-bottom:15px!important;}	
+.imagegalleryplg img {width:100%!important;}
+.btm_contactwrap h2 {font-size:34px!important;}
+.back-to-category {float:none!important;text-align:center!important;display:block!important;margin-bottom:12px;}
+.product-neighbours a.previous-page,.product-neighbours a.next-page   {text-align:center;}
+.product-neighbours a.previous-page {float:left!important;}
+.product-neighbours a.next-page {float:right!important;}
+.width10.floatright.vmrelated .product-field-display {width:48%; margin-right:2px!important;}
+#bottom1,#bottom2,#bottom3,#bottom4,#bottom5,#bottom6  {margin-left: 0!important; width: 100%!important;float:none!important;}
+.j2category .row-fluid [class*="span"] {width: 100%; margin-left: 0!important;float:none!important;}
+.rl_guest, .rl_guest:hover {display:none!important;}
+.j2store-product-info, .article-full-left {text-align:center!important;}
+.articleshop_title, .articleshop_title a {text-align:left!important;}
+.textarea.customer-comment {width:280px!important;height:174px!important;}
+.customer-comment {width:280px!important;height:174px!important;}
+ul.actions {display:block!important;width:100%!important;}
+}
+@media(max-width:450px){
+/* Joomla Article Title Adjustment */
+.jcatHeader h2 {font-size:22px!important;}
+/* Joomla Article */
+h2.article_title a, h2.article_title {font-size:26px!important;}
+.itemJFullText {padding:0px!important;}
+.itemJFullText h2 {font-size:22px!important;}
+.embellishment p {font-size:16px!important;margin:20px auto 12px!important;}
+.virtuemart_search input {width:86%!important;}
+.virtuemart_search i {width:9%!important;}
+span.quantity-box input.quantity-input {width:100%!important;}
+span.quantity-box {width:12%!important;}
+span.addtocart-button {margin:0!important;}
+span.quantity-controls {margin:0 2%!important;}
+span.addtocart-button {width:78%!important;}
+span.addtocart-button input {width:100%!important;}
+.ask-a-question {display:none!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 100%!important; padding:8px 0!important;}
+.featured-view h4, .latest-view h4, .topten-view h4, .recent-view h4 {padding: 12px 0 !important; text-align:center!important;}
+h3.moduletitle {text-align:center!important; padding:20px 0!important}
+.virtuemart_search input {width:82%!important;}
+.virtuemart_search i {width:12%!important;}
+}
+@media(max-width:380px){
+.featured-view .row,.latest-view .row,.topten-view .row,.recent-view .row,.vmcat.row  {width:100%!important;}
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25 {width:93%;}
+.product.floatleft.width25 {width:100%;}
+.loginformwrap {margin:30px auto 0!important; width:260px!important; padding:30px 0;  border:10px solid rgba(0,0,0,0.05);}
+td.key  {width:35px!important;}
+.vmformwrap, .cart-view, .paymentForm {width:100%!important;padding:0px!important;}
+}
+@media(max-width:320px){
+/* Joomla Content Pagination Font Resize & Padding & Border Adjustments */
+div.pagination ul li {padding:0 4px 0 0;}
+/* Breadcrumbs Title Removal */
+.showHere {display:none;}
+/* Global Component H1,H2,H3,H4,H5,H6 Resize */
+.width10.floatright.vmrelated .product-field-display {width:100%; margin-right:0px!important;}
+.checkout-button-top,input.terms-of-service {text-align:center;}
+div.terms-of-service {margin:0px;}
+.mobilebtn {margin: 0px 0px 0px -7px !important;}
+
+}
+/* End Responsive Parameters */
+<?php } ?>
+/**
+ * @version		1.0.2
+ * @package		Hipster template for Joomla! 3.x
+ * @author		JoomlaXTC http://www.joomlaxtc.com
+ * @copyright	Copyright (C) 2014 Monev Software LLC. All rights reserved.
+ * @license		http://www.joomlaxtc.com/license JoomlaXTC Proprietary Use License
+ */
+/* ----------------------------------------------*/
+/* C 00 - CSS3 Hover Effects
+/* ----------------------------------------------*/
+#menuwrap ul.menu li.parent > ul,#menuwrap ul.menu li.parent > ul > li,#headerwrap, body.sticky #headerwrap, .contactbutton, .search_menu_btn, .social a,.ca-main,ul.menu.iconside li,ul.menu.iconside li:hover,.info:hover,.k2wall_introtext,.article_header,.article_header span,.article_text,.k2media_wrap_right,.k2media_wrap_left,.itemImageGallery .imagegalleryplg img,.opac,.eventwrap img,.buttonleft,.buttonright,.buttonright a:hover,.buttonleft a:hover,.newswrap h4.newswrapmore a,.newswrap h4.newswrapmore,.catItemImage img:hover,.catItemImage:hover,.imagepe img:hover,.newitemwrap, a.article-intro-btn, .categorywrap .main, .categorywrap .more, .articletext .morelink, .articletext .morelink:hover, .categorywrap-right .main .articlemain .morelink, .categorywrap-right .main .articlemain .morelink:hover, .categorywrap-left .main .articlemain .morelink, .categorywrap-left .main .articlemain .morelink:hover,.categorywrap-right .more .articlemore:hover, .categorywrap-right .more .articlemore, .categorywrap-left .more .articlemore, .categorywrap-left .more .articlemore:hover,.vmcatwrap a.product-details:hover, .vmhpcatwrap a.product-details:hover, #header ul.menu > li > a,.orderlist {
+	     -webkit-transition-property: all;
+		-moz-transition-property: all;
+		-o-transition-property: all;
+		-ms-transition-property: all;
+		transition-property: all;
+		-webkit-transition-duration: 0.15s,0.15s;
+		-moz-transition-duration: 0.15s,0.15s;
+		-o-transition-duration: 0.15s,0.15s;
+		-ms-transition-duration: 0.15s, 0.15s;
+		transition-duration: 0.15s, 0.15s;
+		-webkit-transition-timing-function: ease-in,ease-out;
+		-moz-transition-timing-function: ease-in,ease-out;
+		-o-transition-timing-function: ease-in,ease-out;
+		-ms-transition-timing-function: ease-in,ease-out;
+		transition-timing-function: ease-in,ease-out;
+	}
+
+/* ----------------------------------------------*/
+/* C 01 - CSS3 Animated Component
+/* ----------------------------------------------*/
+
+/* ----------------------------------------------*/
+/* C 03 - CSS3 Responsive Animations
+/* ----------------------------------------------*/
+body  {
+	  opacity:1; 
+    -webkit-animation:fadeIn ease-in 1;  
+       -moz-animation:fadeIn ease-in 1;
+            animation:fadeIn ease-in 1;
+    -webkit-animation-fill-mode:forwards;  
+       -moz-animation-fill-mode:forwards;
+            animation-fill-mode:forwards;
+     -webkit-animation-duration:1s;
+        -moz-animation-duration:1s;
+             animation-duration:1s;
+}
+/* CSS3 Fade In Parameters */
+/* Responsive Animation Parameters */
+/* ----------------------------------------------*/
+/* C 05 - Responsive Media Breakpoints
+/* ----------------------------------------------*/
+/* RESPONSIVE PARAMETERS */
+/*  Mobile Device Breakpoints */
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+#menuright1 .modulecontent {padding: 0 0 0 0!important;}
+}
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {
+#menuright1 .modulecontent {padding: 0 0 0 0!important;}
+}
+@media(max-width:1500px){
+body.sticky {margin-top: 80px!important;}
+.product.floatleft.width25.vertical-separator.vmcatwrap,.product.floatleft.width25.vertical-separator.vmhpcatwrap {margin:0px 29px 22px 0;}
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25,.recent-view .row .width25 {width:22.6%;}
+}
+@media(max-width:1400px){
+.constrainmod {padding-top: 0;}
+.embellishment {text-align:center;width:450px!important;}
+.orderby-displaynumber .width70 {width:50%!important}
+}
+@media(max-width:1280px){
+.constrainmod {padding:0!important;}
+.embellishment {margin: 0 auto!important;}	
+.j2category .row-fluid .span2 {width: 31.623931623931625%; margin-left: 2.12766%!important;float:left!important;}
+.j2category .row-fluid [class*="span"]:first-child, .j2category .row-fluid .gridfirst, .j2category div.span2.xtc-category-col.cols-6.item.column-4 {margin-left: 0% !important;}
+.j2catitem {margin-bottom:20px!important;}
+.product.floatleft.width25.vertical-separator.vmcatwrap, .product.floatleft.width25.vertical-separator.vmhpcatwrap {margin:0px 26px 22px 0;}
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25,.recent-view .row .width25 {width:22.4%;}	
+/* Joomla Content & K2 Padding and Margin Adjustments */
+.span12 .itemJFullText {padding: 0 40px;}
+input[type="radio"] + label {padding:8px 12px!important;}
+.width10.floatright.vmrelated {width:100%!important;}
+.width10.floatright.vmrelated .product-field-display {width: 32%; margin-right: 8px !important;}
+.productdetails .width60 {width:74%!important;}
+#region1wrap .xtc-wrapper, #region2wrap .xtc-wrapper, #region3wrap .xtc-wrapper, #region4wrap .xtc-wrapper, #region5wrap .xtc-wrapper, #region6wrap .xtc-wrapper, #region7wrap .xtc-wrapper, #region8wrap .xtc-wrapper, #region9wrap .xtc-wrapper {padding:0!important}
+.module {margin: 0px 0px 25px!important;}
+#left .module, #right .module {margin: 0px!important}
+h1.vmcat_maintitle, h1.vmcat_maintitle a, h4.vmcat_maintitle, h4.vmcat_maintitle a, .featured-view h4, .latest-view h4, .topten-view h4, .recent-view h4 {
+     margin: 0px 0px 30px !important;}
+}
+@media(max-width:1140px){
+/* Search Input Resize */
+input#mod-search-searchword.inputbox {width:80%!important;}
+input[type="radio"] + label {padding:6px 8px!important;}
+a.ask-a-question {padding: 12px 24px 11px !important;}
+/* J2 Store */
+.j2category .row-fluid .span3 {width: 48.717948717948715%; margin-left: 2.12766%!important;float:left!important;}
+.j2category .row-fluid [class*="span"]:first-child, .j2category .row-fluid .gridfirst, .j2category div.span3.xtc-category-col.cols-4.item.column-3 {margin-left: 0px !important;}
+.j2catHeader {padding: 4px 24px !important;margin: 0px 0px 12px !important;}
+.vm_catname {padding: 18px 16px 0px 18px !important;}
+.orderby-displaynumber {padding: 10px 18px 24px;}
+}
+@media(max-width:1080px){
+.width10.floatright.vmrelated {width:100%!important;}
+.width60.floatleft.vmdetails {width:75%!important;}
+#header ul.menu > li > a, #header ul.menu > li.active > a, #header ul.menu > li:hover > a, span.separator, #header ul.menu > li.parent:hover > a {margin: 0px 6px;padding-right: 6px!important;}
+.productdetails-view {padding:0!important}
+#component {background: #fff; padding:12px!important}
+.orderby-displaynumber {margin: 0 !important;}
+.product.floatleft.width25.vertical-separator.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {margin: 0!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 22.75%!important;padding: 7px!important;}
+h1.vmcat_maintitle, h1.vmcat_maintitle a, h4.vmcat_maintitle, h4.vmcat_maintitle a, .featured-view h4, .latest-view h4, .topten-view h4, .recent-view h4 {
+    padding: 20px 12px !important;  margin: 0px 0px 5px !important;}
+}
+@media screen and (max-width: 980px){
+/* Joomla Content Padding and Margins */
+.leftlarge .items-leading .span6,.leftlarge .items-leading .span3{width:100%;margin-left:0;}
+.leftlarge .items-leading div:first-child + div{margin-left:0;}
+.rightlarge .items-leading .span6,.rightlarge .items-leading .span3{width:100%;margin-left:0;}
+.centerlarge .items-leading .span6,.centerlarge .items-leading .span3{width:100%;margin-left:0;}
+.centerlarge .items-leading div:first-child + div + div{margin-left:0;}
+}
+@media screen and (max-width: 920px){
+.product.floatleft.width25 {padding: 6px!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 22.4%!important;padding: 6px!important;}
+}
+@media screen and (max-width: 900px){
+body.sticky {margin-top: 64px!important;}
+/* Full Width Span Breakpoint */
+.row-fluid [class*="span"] {display: block; width: 100%;margin-left: 0!important;}
+/* Region Padding Adjustments  */	 
+#region1wrap .xtc-fluidwrapper, #region2wrap .xtc-fluidwrapper, #region3wrap .xtc-fluidwrapper, #region4wrap .xtc-fluidwrapper,
+#region5wrap .xtc-fluidwrapper, #region6wrap .xtc-fluidwrapper, #region7wrap .xtc-fluidwrapper, #region8wrap .xtc-fluidwrapper,
+#region8wrap .xtc-fluidwrapper, #region10wrap .xtc-fluidwrapper,
+#region1wrap .xtc-wrapper, #region2wrap .xtc-wrapper, #region3wrap .xtc-wrapper, #region4wrap  .xtc-wrapper,
+#region5wrap .xtc-wrapper, #region6wrap .xtc-wrapper, #region7wrap  .xtc-wrapper, #region8wrap .xtc-wrapper,
+#region9wrap .xtc-wrapper, #region10wrap .xtc-wrapper {padding: 0 !important;}
+.module {margin-bottom:2.5%!important;}
+#component {padding:10px!important;}
+#bottom1,#bottom2,#bottom3,#bottom4,#bottom5,#bottom6  {margin-left: 2.564102564102564%!important; width: 48.717948717948715%!important;float:left!important;text-align:center!important; }
+#region9 ul li {list-style-type:none!important;}
+#region9 .module h3 span {font-weight:normal!important;}
+#bottom1,#bottom3,#bottom5 {margin-left:0!important;}
+#component {margin-bottom:0!important;}
+/* Image Gallery Plugin Width Adjustment */
+.imagegalleryplg img {width:33%!important;}
+/* Search Field Resize */
+input#mod-search-searchword.inputbox {width:100%!important;}
+/* Contact Module Center */
+div.contactwrap {text-align:center;}
+/* Footer Module Center */
+#footer {text-align:center;}
+#menuwrap {float:right!important;}
+/* Joomla Category */
+.xtc-leading .span6,.xtc-leading .span3,.xtc-intro .span3{} 
+input[type="radio"] + label {padding:12px 14px!important;}
+.cart-view .width50 {width:100%!important;float:none!important;margin-bottom:20px!important;}
+#sb-searchwrap {display:none!important;}
+.shoptop .banneritem img {width: 200% !important;max-width: 200% !important;position: relative;left: -47%;}
+.productdetails-view {padding:12px!important;}
+input#modlgn-username.inputbox,input#modlgn-passwd.inputbox {max-width:94%!important;width:100%;min-width:1px!important;}
+.mobilebtn {margin: 0px 0px 0px -8px !important;}
+.constrainmod {padding-top: 80px!important;}
+.embellishment {text-align:center;width:515px!important;}
+#region9 .module h3.moduletitle {padding:20px 0!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 22.7% !important;  padding: 8px !important;}
+}
+@media (max-width: 800px) {
+/* Deluxe NewsPro Adjustments  */
+.articleleft, .articleright, .articleleft p, .articleright p {float:none!important;text-align:center!important;width:90%!important; margin:0 auto!important;}
+DL.search-results {width:95%;}
+.search-searchword {display:none!important;}
+.search .button {margin-top:12px!important;}
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25 {width:47%;}/* fallback for Opera */
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25 {width: calc(50% - 32px);}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap{width: 47%!important; padding: 8px!important;}
+.floatleft {float:left!important;}
+h1.vmcat_maintitle, h1.vmcat_maintitle a, h4.vmcat_maintitle, h4.vmcat_maintitle a,
+.featured-view h4, .latest-view h4, .topten-view h4, .recent-view h4 {
+    padding: 12px 12px !important;
+}
+}
+@media (max-width: 768px) {
+/* Joomla Article */
+h2.article_title a, h2.article_title {font-size:42px!important;}
+.itemJFullText {padding:0px!important;}
+.itemJFullText h2 {font-size:32px!important;}
+/* Joomla Search Text Align, Padding and Resize Adjustments */
+.formwrap,form#finder-search {text-align:left; padding:10px;width:80%; }
+.formwrap, form#finder-search {width:100%!important;}
+/* Image Gallery Resize */
+.imagegalleryplg img {width:50%!important;}
+.width30.floatleft.vmimage {width:50%!important;}
+.width10.floatright.vmrelated  {width:100%;}
+.productdetails-view .spacer-buy-area, .productdetails-view .product-description {padding:0 10px!important;}
+.embellishment {margin:0 auto!important;}
+.sitebadge {width:100%!important;}
+.embellishment p {width:95%!important;}
+.loginformwrap {margin:60px auto 0!important; position:static!important; padding:60px 0;  border:15px solid rgba(0,0,0,0.05); background: rgba(255, 255, 255, 0.5);}
+.width10.floatright.vmrelated .product-field-display {width: 31%!important;}
+.vmformwrap {width:auto!important;padding:0!important;}
+.rl_guest, .rl_guest:hover {margin:0!important; float:none!important;padding: 10px 34px !important;}
+.cart-images {display:none;}
+div.width30.floatleft.scart_name, div.width30.floatleft.cart_name {width:15%;}
+div.width20.floatleft.vmcart_qty, div.width20.floatleft.svmcart_qty {width:30%;}
+.textarea.customer-comment {width:490px!important;height:174px!important;}
+.customer-comment {width:490px!important;height:174px!important;}
+.orderby-displaynumber .width70 {width:65%;}
+.box .modulecontent, .darkbox .modulecontent, .bluebox .modulecontent, .redbox .modulecontent, .greenbox .modulecontent, .orangebox .modulecontent, .purplebox .modulecontent, .yellowbox .modulecontent, .lightbox .modulecontent, .stylebox .modulecontent, .transbox .modulecontent, .basecolor5_box .modulecontent, .basecolor6_box .modulecontent, .basecolor7_box .modulecontent, .basecolor8_box .modulecontent {padding: 20px 20px 30px 20px;}
+.box h3.moduletitle, .darkbox h3.moduletitle, .bluebox h3.moduletitle, .redbox h3.moduletitle, .greenbox h3.moduletitle, .orangebox h3.moduletitle, .purplebox h3.moduletitle, .yellowbox h3.moduletitle, .lightbox h3.moduletitle, .basecolor5_box h3.moduletitle, .basecolor6_box h3.moduletitle, .basecolor7_box h3.moduletitle, .basecolor8_box h3.moduletitle {padding: 20px 0px 0px 20px !important;}
+.orderby-displaynumber {padding:0 10px!important;margin:0 0 15px 0!important;}
+.vm_catname  {margin-bottom:15px!important; padding: 10px 8px 0px 10px !important;}
+.j2catHeader {padding: 0px 10px !important;margin: 0px 0px 10px !important;}
+#footerwrap .xtc-wrapperpad {padding-left:20px;padding-right:20px;}
+}
+@media(max-width:660px){
+.main-image img {margin: 0 auto 30px!important;}
+.product-related-products {text-align:center!important;}
+.product-related-products h4 {text-align:left!important;}
+.product-fields, .product-field-display {margin:0 auto!important;float:none!important;}
+.addtocart-area  .product-field {float:none!important;}
+a.ask-a-question:before {display:none}
+.vmformwrap h1 {font-size: 28px!important;}
+.textarea.customer-comment {width:390px!important;height:174px!important;}
+.customer-comment {width:390px!important;height:174px!important;}
+.fontawesome-icon-list div {width:45%;}
+.constrainmod {padding-top: 10px !important;}
+}
+@media(max-width:620px){
+/* Joomla Category Blog Pagination Hide */
+.pagination-start,.pagination-end,.pagination-prev,.pagination-next {display:none!important;}
+.pagination ul > li:nth-child(3) > a, .pagination ul > li > span {
+	border-left-width: 1px !important;
+}
+/* Global Component H1,H2,H3,H4,H5,H6 Resize */
+.bottomlogo img {width:200px!important; height:200px!important;}
+.width25.floatleft.vmimage,.width60.floatleft.vmdetails {width:100%!important;float:none;}
+.productdetails-view .spacer-buy-area, .productdetails-view .product-description {padding:0 !important;text-align:center!important;}
+input[type="radio"] + label {padding:12px!important;}
+.floatright,.floatleft,.back-to-category {float:none;}
+#region1wrap .xtc-wrapper {padding:0!important;}
+.embellishment {width:99%!important;}
+span.addtocart-button {width:auto!important; margin-right:10px;}
+#component {padding: 6px !important;}
+span.product-box, span.availability {display:none!important}
+.spacer-buy-area {text-align:center!important;}
+.product-related-products h4 {text-align: center !important; }
+.manufacturer-view-default .width33 {width:100%!important;}
+.width10.floatright.vmrelated .product-field-display {width:31%!important; display:inline-block;float:left!important;}
+.img-fulltext-left, .article-full-left {float:none!important; width:100%!important}
+.rl_guest, .rl_guest:hover {margin: -58px 0px 0px 200px !important; padding: 10px 32px !important;}
+.j2store-product-info .options {text-align:center!important;}
+.article-full-left .article_infos {text-align:center!important;}
+div.cart_title_bar {display:none;}
+.width30.floatleft.scart_name,.width10.floatleft.svmsku,.width20.floatleft.svmcart_qty,.width10.floatleft.vmcart_tax,.width10.floatleft.svmcart_disco,div.width20.floatright.svmcartprice,div.width20.floatright.cartprice,.product-field-type-B,.product-field-type-S,.product-field-type-I {width:100%!important;float:none!important;text-align:center!important;magin-bottom:3px;font-size:18px!important;}
+.width30.floatleft.scart_name,.width10.floatleft.svmsku,.width20.floatleft.svmcart_qty,div.width20.floatright.svmcartprice,div.width20.floatright.cartprice {padding: 5px 0px;}
+div.width20.floatright.cartprice {padding: 0px 0px 5px 0px;}
+.width30.floatleft.scart_name,.cart-view span.PricesalesPrice {font-size:22px!important;font-weight:900;}
+.cart-images {display:block;}
+span.cart-images img {float:none;width:100%;}
+.sectiontableentry1 {background:none!important;padding:20px;border:1px solid #ccc;margin-bottom:12px;}
+.sectiontableentry2 {background:none!important;padding:20px;border:1px solid #ccc;margin-bottom:12px;}
+.orderby-displaynumber .width70,.width30.floatright.display-number {}
+.orderlistcontainer, .orderlistcontainer div.activeOrder, .orderby-displaynumber {}
+.display-number {float:right!important;}
+.Pagination ul {padding: 9px 0px!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 46%!important;}
+.orderby-displaynumber .width70, .orderby-displaynumber .width70 .orderlistcontainer {float:none!important; width:100%!important;}
+.orderby-displaynumber .width70 .orderlistcontainer {margin-bottom:12px!important;}
+.display-number select.inputbox {float:left!important; width:100%!important;display:block!important}
+.virtuemart_search {display:block!important; width:100%!important;}
+.virtuemart_search input {width:91%!important;}
+.virtuemart_search i {padding:8px 0!important; width:6%!important;text-align:center!important}
+}
+@media(max-width:530px){
+.virtuemart_search input {width:90%!important;}
+.virtuemart_search i {width:6%!important;}
+}
+
+@media(max-width:530px){
+.embellishment p {font-size:20px;margin:20px auto 12px!important;}
+.rl_guest i {display:none!important;} 
+}
+@media(max-width:500px){
+.virtuemart_search input {width:87%!important;}
+.virtuemart_search i {width:9%!important;}
+}
+@media(max-width:480px){
+body.sticky {margin-top: 60px!important;}
+.xtc-leading .span6,.xtc-leading .span3,.xtc-intro .span3{float:none;width:100%;}
+/* Joomla Content Print & Email Button Adjustments */
+.cat-item div.action {position:relative!important;right:0px!important;bottom:0px;top:24px;}
+/* Custom HTML Inset Padding Adjustment */
+/* Joomla Content Navigation Padding and Margin Adjustments */
+div.itemNavigation {margin:0px!important;padding:0px!important;}
+.span12 .itemNav_pre,.span11 .itemNav_pre,.span10 .itemNav_pre, .span9 .itemNav_pre,.span8 .itemNav_pre,.span7 .itemNav_pre,.span6 .itemNav_pre,.span5 .itemNav_pre,.span4 .itemNav_pre,.span3 .itemNav_pre,.span2 .itemNav_pre,.span1 .itemNav_pre,	.span12 .itemNav_next,.span11 .itemNav_next,.span10 .itemNav_next, .span9 .itemNav_next,.span8 .itemNav_next,.span7 .itemNav_next,.span6 .itemNav_next,.span5 .itemNav_next,.span4 .itemNav_next,.span3 .itemNav_next,.span2 .itemNav_next,.span1 .itemNav_next {margin-left:0px!important;padding-right:0px;padding-left:0px;}
+.prevnext_style {margin-bottom:72px;}
+/* Joomla Page Title Font Resize */
+h1.pagetitle span {font-size:34px!important;}
+/* Region Padding Resize */	
+.articleright p, .articleleft p {font-size:16px!important;}	
+.articleright h2, .articleleft h2 {font-size:36px!important;margin-bottom:15px!important;}	
+.imagegalleryplg img {width:100%!important;}
+.btm_contactwrap h2 {font-size:34px!important;}
+.back-to-category {float:none!important;text-align:center!important;display:block!important;margin-bottom:12px;}
+.product-neighbours a.previous-page,.product-neighbours a.next-page   {text-align:center;}
+.product-neighbours a.previous-page {float:left!important;}
+.product-neighbours a.next-page {float:right!important;}
+.width10.floatright.vmrelated .product-field-display {width:48%; margin-right:2px!important;}
+#bottom1,#bottom2,#bottom3,#bottom4,#bottom5,#bottom6  {margin-left: 0!important; width: 100%!important;float:none!important;}
+.j2category .row-fluid [class*="span"] {width: 100%; margin-left: 0!important;float:none!important;}
+.rl_guest, .rl_guest:hover {display:none!important;}
+.j2store-product-info, .article-full-left {text-align:center!important;}
+.articleshop_title, .articleshop_title a {text-align:left!important;}
+.textarea.customer-comment {width:280px!important;height:174px!important;}
+.customer-comment {width:280px!important;height:174px!important;}
+ul.actions {display:block!important;width:100%!important;}
+}
+@media(max-width:450px){
+/* Joomla Article Title Adjustment */
+.jcatHeader h2 {font-size:22px!important;}
+/* Joomla Article */
+h2.article_title a, h2.article_title {font-size:26px!important;}
+.itemJFullText {padding:0px!important;}
+.itemJFullText h2 {font-size:22px!important;}
+.embellishment p {font-size:16px!important;margin:20px auto 12px!important;}
+.virtuemart_search input {width:86%!important;}
+.virtuemart_search i {width:9%!important;}
+span.quantity-box input.quantity-input {width:100%!important;}
+span.quantity-box {width:12%!important;}
+span.addtocart-button {margin:0!important;}
+span.quantity-controls {margin:0 2%!important;}
+span.addtocart-button {width:78%!important;}
+span.addtocart-button input {width:100%!important;}
+.ask-a-question {display:none!important;}
+.product.floatleft.width25.vmcatwrap, .product.floatleft.width25.vmhpcatwrap {width: 100%!important; padding:8px 0!important;}
+.featured-view h4, .latest-view h4, .topten-view h4, .recent-view h4 {padding: 12px 0 !important; text-align:center!important;}
+h3.moduletitle {text-align:center!important; padding:20px 0!important}
+.virtuemart_search input {width:82%!important;}
+.virtuemart_search i {width:12%!important;}
+}
+@media(max-width:380px){
+.featured-view .row,.latest-view .row,.topten-view .row,.recent-view .row,.vmcat.row  {width:100%!important;}
+.featured-view .row .width25,.latest-view .row .width25,.topten-view .row .width25 {width:93%;}
+.product.floatleft.width25 {width:100%;}
+.loginformwrap {margin:30px auto 0!important; width:260px!important; padding:30px 0;  border:10px solid rgba(0,0,0,0.05);}
+td.key  {width:35px!important;}
+.vmformwrap, .cart-view, .paymentForm {width:100%!important;padding:0px!important;}
+}
+@media(max-width:320px){
+/* Joomla Content Pagination Font Resize & Padding & Border Adjustments */
+/*div.pagination ul li {padding:0 4px 0 0;}*/
+/* Breadcrumbs Title Removal */
+.showHere {display:none;}
+/* Global Component H1,H2,H3,H4,H5,H6 Resize */
+.width10.floatright.vmrelated .product-field-display {width:100%; margin-right:0px!important;}
+.checkout-button-top,input.terms-of-service {text-align:center;}
+div.terms-of-service {margin:0px;}
+.mobilebtn {margin: 0px 0px 0px -7px !important;}
+
+}
+/* End Responsive Parameters */
+@media(min-width: 768px){
+.djc_title h3 a{
+	min-height: 72px;
+	display: block;
+  display: -webkit-box;
+ display: -moz-box;
+  max-width: 100%;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  -moz-line-clamp: 3;
+  -moz-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+}
+@media (max-width: 1280px){
+body.sticky {
+    margin-top: 120px !important;
+}
+}
+@media (max-width: 979px){
+body.sticky {
+    margin-top: 138px !important;
+}
+}
+@media (max-width: 900px){
+body.sticky {
+    margin-top: 153px !important;
+}
+.pagination ul {
+	float: left;
+}
+}
+@media (max-width: 480px){
+body.sticky {
+    margin-top: 170px !important;
+}
+body.sticky #header {
+	padding-bottom: 0px !important;
+}
+}
+@media(max-width:332px){
+.pagination ul{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+}
+@media (max-width: 455px){
+body.sticky {
+    margin-top: 198px !important;
+}
+}
+
+h1.componentheading {
+	margin-bottom: 20px !important;
+
+}
+#region3wrap .xtc-wrapper {
+	padding-top: 50px !important;
+}
+.djc_form_addtocart input.btn[type="submit"] {
+    background: #900 none repeat scroll 0% 0% !important;
+    color: #FFF !important;
+border: medium none !important;
+font-size: 12px !important;
+text-transform: uppercase !important;
+font-weight: bold !important;
+border-radius: 5px !important;
+    }
+
+    @media(max-width:991px){
+	.djc_items .djc_item_in {
+		padding: 10px !important;
+	}
+    }

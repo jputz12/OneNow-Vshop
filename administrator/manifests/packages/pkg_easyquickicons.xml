@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3.1" method="upgrade">
+	<name>pkg_easyquickicons</name>
+	<packagename>easyquickicons</packagename>
+	<version>3.2.2</version>
+	<creationDate>May 7, 2013</creationDate>
+	<copyright>Copyright (C) 2010 AwyneSoft.com</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<author>AwyneSoft</author>
+	<authorEmail>support@awynesoft.com</authorEmail>
+	<authorUrl>http://www.awynesoft.com</authorUrl>
+	<packager>AwyneSoft</packager>
+	<packagerurl>http://www.awynesoft.com/</packagerurl>
+	<description>Easy Quickicons Package</description>
+	<scriptfile>pkg_installer.php</scriptfile>
+	<files folder="packages">
+		<file type="module" id="mod_easyquickicons" client="administrator">mod_easyquickicons.zip</file>
+		<file type="component" id="com_easyquickicons">com_easyquickicons.zip</file>
+	</files>
+	<updateservers>
+		<server type="extension" priority="1" name="Easyquickicons Update Site">http://www.awynesoft.com/jextensions/easyquickicons/pro/j32/easyquickicons_update.xml</server>
+	</updateservers>
+</extension>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field
+			id="id"
+			name="id"
+			type="text"
+			default="0"
+			readonly="true"
+			class="readonly"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC"
+		/>
+		<field name="catid"	type="category"
+			extension="com_easyquickicons"
+			label="JCATEGORY"
+			description="COM_EASYQUICKICONS_ICON_FIELD_CATEGORY_DESC"
+			class="inputbox"
+		/>
+		<field
+			name="name"
+			type="text"
+			label="COM_EASYQUICKICONS_NAME_LABEL"
+			description="COM_EASYQUICKICONS_NAME_DESC"
+			size="40"
+			class="inputbox"
+			required="true"
+			onchange="$('grid_txt').innerHTML = $('list_txt').innerHTML = this.value;"
+		/>
+		<field
+			name="link"
+			type="text"
+			label="COM_EASYQUICKICONS_LINK_LABEL"
+			description="COM_EASYQUICKICONS_LINK_DESC"
+			size="90"
+			default=""
+			onchange="$('grid_link').href = $('list_link').href = this.value;"
+		/>
+		<field
+			name="component"
+			type="folderlist"
+			default=""
+			label="COM_EASYQUICKICONS_COMPONENT_NAME"
+			description="COM_EASYQUICKICONS_COMPONENT_NAME_DESC"
+			directory="/administrator/components"
+			hide_default="true"
+			exclude="admin|cpanel|login"
+			onchange="$('jform_link').value = 'index.php?option=' + this.value;$('grid_link').href = $('list_link').href = 'index.php?option=' + this.value;"
+		/>
+        <!--
+		<field
+			name="icon"
+			type="ImageList"
+			label="COM_EASYQUICKICONS_ICON_LABEL"
+			description="COM_EASYQUICKICONS_ICON_DESC"
+			default="icon-16-component.png"
+			directory="images/easyquickicons"
+			hide_default="1"
+		/>
+        -->
+        <field name="icon"
+            type="list"
+            label="COM_EASYQUICKICONS_ICON_LABEL"
+            default="!"
+            description="COM_EASYQUICKICONS_ICON_DESC"
+            onchange="$('grid_icon_view').innerHTML=$('list_icon_view').innerHTML=this.value;" >
+    			<option value="!">COM_EASYQUICKICONS_ICON_HOME</option>
+    			<option value="&#34;">COM_EASYQUICKICONS_ICON_USER</option>
+    			<option value="#">COM_EASYQUICKICONS_ICON_LOCK</option>
+    			<option value="$">COM_EASYQUICKICONS_ICON_COMMENT</option>
+    			<option value="%">COM_EASYQUICKICONS_ICON_COMMENTS</option>
+    			<option value="&amp;">COM_EASYQUICKICONS_ICON_SHARE</option>
+    			<!--
+    			<option value="'">COM_EASYQUICKICONS_ICON_REDO</option>
+    			-->
+    			<option value="(">COM_EASYQUICKICONS_ICON_UNDO</option>
+    			<option value=")">COM_EASYQUICKICONS_ICON_FILE_ADD</option>
+    			<option value="*">COM_EASYQUICKICONS_ICON_NEW</option>
+    			<option value="+">COM_EASYQUICKICONS_ICON_EDIT</option>
+    			<option value=",">COM_EASYQUICKICONS_ICON_PENCIL</option>
+    			<option value="-">COM_EASYQUICKICONS_ICON_FOLDER_OPEN</option>
+    			<option value=".">COM_EASYQUICKICONS_ICON_FOLDER_CLOSED</option>
+    			<option value="/">COM_EASYQUICKICONS_ICON_PICTURE</option>
+    			<option value="0">COM_EASYQUICKICONS_ICON_PICTURES</option>
+    			<option value="1">COM_EASYQUICKICONS_ICON_LIST</option>
+    			<option value="2">COM_EASYQUICKICONS_ICON_POWERCORD</option>
+    			<option value="3">COM_EASYQUICKICONS_ICON_CUBE</option>
+    			<option value="4">COM_EASYQUICKICONS_ICON_PUZZLE</option>
+    			<option value="5">COM_EASYQUICKICONS_ICON_FLAG</option>
+    			<option value="6">COM_EASYQUICKICONS_ICON_TOOLS</option>
+    			<option value="7">COM_EASYQUICKICONS_ICON_COGS</option>
+    			<option value="8">COM_EASYQUICKICONS_ICON_OPTIONS</option>
+    			<option value="9">COM_EASYQUICKICONS_ICON_EQUALIZER</option>
+    			<option value=":">COM_EASYQUICKICONS_ICON_WRENCH</option>
+    			<option value=";">COM_EASYQUICKICONS_ICON_BRUSH</option>
+    			<option value="&lt;">COM_EASYQUICKICONS_ICON_EYE_OPEN</option>
+    			<option value="K">COM_EASYQUICKICONS_ICON_EYE_CLOSED</option>
+    			<option value="=">COM_EASYQUICKICONS_ICON_CHECKBOX_UNCHECKED</option>
+    			<option value="&gt;">COM_EASYQUICKICONS_ICON_CHECKBOX</option>
+    			<option value="?">COM_EASYQUICKICONS_ICON_CHECKBOX_PARTIAL</option>
+    			<option value="@">COM_EASYQUICKICONS_ICON_STAR_EMPTY</option>
+    			<option value="A">COM_EASYQUICKICONS_ICON_STAR_PARTIAL</option>
+    			<option value="B">COM_EASYQUICKICONS_ICON_STAR</option>
+    			<option value="C">COM_EASYQUICKICONS_ICON_CALENDAR</option>
+    			<option value="D">COM_EASYQUICKICONS_ICON_CALENDARS</option>
+    			<option value="E">COM_EASYQUICKICONS_ICON_HELP</option>
+    			<option value="F">COM_EASYQUICKICONS_ICON_SUPPORT</option>
+    			<option value="H">COM_EASYQUICKICONS_ICON_WARNING</option>
+    			<option value="G">COM_EASYQUICKICONS_ICON_CHECKMARK</option>
+    			<option value="J">COM_EASYQUICKICONS_ICON_CANCEL</option>
+    			<option value="L">COM_EASYQUICKICONS_ICON_TRASH</option>
+    			<option value="M">COM_EASYQUICKICONS_ICON_ENVELOPE</option>
+    			<option value="N">COM_EASYQUICKICONS_ICON_ENVELOPE_OPEN</option>
+    			<option value="O">COM_EASYQUICKICONS_ICON_DRAWER</option>
+    			<option value="P">COM_EASYQUICKICONS_ICON_DRAWER_FULL</option>
+    			<option value="Q">COM_EASYQUICKICONS_ICON_BOX_ADD</option>
+    			<option value="R">COM_EASYQUICKICONS_ICON_BOX_REMOVE</option>
+    			<option value="S">COM_EASYQUICKICONS_ICON_SEARCH</option>
+    			<option value="T">COM_EASYQUICKICONS_ICON_FILTER</option>
+    			<option value="U">COM_EASYQUICKICONS_ICON_CAMERA</option>
+    			<option value="V">COM_EASYQUICKICONS_ICON_PLAY</option>
+    			<option value="W">COM_EASYQUICKICONS_ICON_MUSIC</option>
+    			<option value="X">COM_EASYQUICKICONS_ICON_GRID</option>
+    			<option value="Y">COM_EASYQUICKICONS_ICON_GRID_SMALL</option>
+    			<option value="Z">COM_EASYQUICKICONS_ICON_MENU</option>
+    			<option value="[">COM_EASYQUICKICONS_ICON_THUMBS_UP</option>
+    			<option value="\">COM_EASYQUICKICONS_ICON_THUMBS_DOWN</option>
+    			<option value="I">COM_EASYQUICKICONS_ICON_DELETE</option>
+    			<option value="]">COM_EASYQUICKICONS_ICON_PLUS</option>
+    			<option value="^">COM_EASYQUICKICONS_ICON_MINUS</option>
+    			<option value="_">COM_EASYQUICKICONS_ICON_KEY</option>
+    			<option value="`">COM_EASYQUICKICONS_ICON_QUOTE_OPEN</option>
+    			<option value="a">COM_EASYQUICKICONS_ICON_QUOTE_CLOSE</option>
+    			<option value="b">COM_EASYQUICKICONS_ICON_DATABASE</option>
+    			<option value="c">COM_EASYQUICKICONS_ICON_LOCATION</option>
+    			<option value="d">COM_EASYQUICKICONS_ICON_ZOOM_IN</option>
+    			<option value="e">COM_EASYQUICKICONS_ICON_ZOOM_OUT</option>
+    			<option value="f">COM_EASYQUICKICONS_ICON_ENLARGE</option>
+    			<option value="h">COM_EASYQUICKICONS_ICON_EXPAND</option>
+    			<option value="g">COM_EASYQUICKICONS_ICON_CONTRACT</option>
+    			<option value="i">COM_EASYQUICKICONS_ICON_SHRINK</option>
+    			<option value="j">COM_EASYQUICKICONS_ICON_HEALTH</option>
+    			<option value="k">COM_EASYQUICKICONS_ICON_WAND</option>
+    			<option value="l">COM_EASYQUICKICONS_ICON_REFRESH</option>
+    			<option value="m">COM_EASYQUICKICONS_ICON_VCARD</option>
+    			<option value="n">COM_EASYQUICKICONS_ICON_CLOCK</option>
+    			<option value="o">COM_EASYQUICKICONS_ICON_COMPASS</option>
+    			<option value="p">COM_EASYQUICKICONS_ICON_ADDRESS</option>
+    			<option value="q">COM_EASYQUICKICONS_ICON_FEED</option>
+    			<option value="r">COM_EASYQUICKICONS_ICON_ATTACHMENT</option>
+    			<option value="s">COM_EASYQUICKICONS_ICON_PIN</option>
+    			<option value="t">COM_EASYQUICKICONS_ICON_LAMP</option>
+    			<option value="u">COM_EASYQUICKICONS_ICON_CHART</option>
+    			<option value="v">COM_EASYQUICKICONS_ICON_BARS</option>
+    			<option value="w">COM_EASYQUICKICONS_ICON_PIE</option>
+    			<option value="x">COM_EASYQUICKICONS_ICON_DASHBOARD</option>
+    			<option value="y">COM_EASYQUICKICONS_ICON_LIGHTNING</option>
+    			<option value="z">COM_EASYQUICKICONS_ICON_MOVE</option>
+    			<option value="{">COM_EASYQUICKICONS_ICON_NEXT</option>
+    			<option value="|">COM_EASYQUICKICONS_ICON_PREVIOUS</option>
+    			<option value="}">COM_EASYQUICKICONS_ICON_FIRST</option>
+    			<option value="&#57344;">COM_EASYQUICKICONS_ICON_LAST</option>
+    			<option value="&#57345;">COM_EASYQUICKICONS_ICON_LOOP</option>
+    			<option value="&#57346;">COM_EASYQUICKICONS_ICON_SHUFFLE</option>
+    			<option value="&#57347;">COM_EASYQUICKICONS_ICON_ARROW_FIRST</option>
+    			<option value="&#57348;">COM_EASYQUICKICONS_ICON_ARROW_LAST</option>
+    			<option value="&#57349;">COM_EASYQUICKICONS_ICON_ARROW_UP</option>
+    			<option value="&#57351;">COM_EASYQUICKICONS_ICON_ARROW_DOWN</option>
+    			<option value="&#57352;">COM_EASYQUICKICONS_ICON_ARROW_LEFT</option>
+    			<option value="&#57350;">COM_EASYQUICKICONS_ICON_ARROW_RIGHT</option>
+    			<option value="&#57353;">COM_EASYQUICKICONS_ICON_ARROW_UP_2</option>
+    			<option value="&#57355;">COM_EASYQUICKICONS_ICON_ARROW_DOWN_2</option>
+    			<option value="&#57356;">COM_EASYQUICKICONS_ICON_ARROW_LEFT_2</option>
+    			<option value="&#57354;">COM_EASYQUICKICONS_ICON_ARROW_RIGHT_2</option>
+    			<option value="&#57359;">COM_EASYQUICKICONS_ICON_ARROW_UP_3</option>
+    			<option value="&#57361;">COM_EASYQUICKICONS_ICON_ARROW_DOWN_3</option>
+    			<option value="&#57362;">COM_EASYQUICKICONS_ICON_ARROW_LEFT_3</option>
+    			<option value="&#57360;">COM_EASYQUICKICONS_ICON_ARROW_RIGHT_3</option>
+    			<option value="&#57357;">COM_EASYQUICKICONS_ICON_PLAY</option>
+    			<option value="&#57358;">COM_EASYQUICKICONS_ICON_MENU_2</option>
+    			<option value="&#57363;">COM_EASYQUICKICONS_ICON_PRINTER</option>
+    			<option value="&#57364;">COM_EASYQUICKICONS_ICON_COLOR_PALETTE</option>
+    			<option value="&#57365;">COM_EASYQUICKICONS_ICON_VIDEO_CAMERA</option>
+    			<option value="&#57366;">COM_EASYQUICKICONS_ICON_FILE</option>
+    			<option value="&#57367;">COM_EASYQUICKICONS_ICON_FILE_REMOVE</option>
+    			<option value="&#57368;">COM_EASYQUICKICONS_ICON_COPY</option>
+    			<option value="&#57369;">COM_EASYQUICKICONS_ICON_CART</option>
+    			<option value="&#57370;">COM_EASYQUICKICONS_ICON_BASKET</option>
+    			<option value="&#57371;">COM_EASYQUICKICONS_ICON_BROADCAST</option>
+    			<option value="&#57372;">COM_EASYQUICKICONS_ICON_SCREEN</option>
+    			<option value="&#57373;">COM_EASYQUICKICONS_ICON_TABLET</option>
+    			<option value="&#57374;">COM_EASYQUICKICONS_ICON_MOBILE</option>
+    			<option value="&#57375;">COM_EASYQUICKICONS_ICON_USERS</option>
+    			<option value="&#57376;">COM_EASYQUICKICONS_ICON_BRIEFCASE</option>
+    			<option value="&#57377;">COM_EASYQUICKICONS_ICON_DOWNLOAD</option>
+    			<option value="&#57378;">COM_EASYQUICKICONS_ICON_UPLOAD</option>
+    			<option value="&#57379;">COM_EASYQUICKICONS_ICON_BOOKMARK</option>
+    			<option value="&#57380;">COM_EASYQUICKICONS_ICON_OUT</option>
+
+		</field>
+		<field
+			name="custom_icon"
+			type="list"
+			default="0"
+			description="COM_EASYQUICKICONS_ICON_TYPE_DESC"
+			label="COM_EASYQUICKICONS_ICON_TYPE"
+			size="1"
+			class="inputbox"
+			onchange="setType(this.value);"
+		>
+			<option value="0">COM_EASYQUICKICONS_ICON_PREMADE</option>
+			<option value="1">COM_EASYQUICKICONS_CUSTOM_ICONS</option>
+		</field>
+		<field
+			name="icon_path"
+			type="media"
+			label="COM_EASYQUICKICONS_ICON_PATH_LABEL"
+			description="COM_EASYQUICKICONS_ICON_PATH_DESC"
+			class="inputbox"
+			directory="easyquickicons"
+			onchange="customIcon(this.value)"
+		/>
+		<field
+			name="published"
+			type="list"
+			label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC"
+			class="inputbox"
+			size="1"
+			default="1">
+			<option
+				value="1">
+				JPUBLISHED</option>
+			<option
+				value="0">
+				JUNPUBLISHED</option>
+			<option
+				value="2">
+				JARCHIVED</option>
+			<option
+				value="-2">
+				JTRASHED</option>
+		</field>
+		<field
+			name="target"
+			type="list"
+			label="COM_EASQUICKICONS_TARGET_LABEL"
+			description="COM_EASYQUICKICONS_TARGET_DESC"
+			default="_self"
+			class="inputbox">
+			<option value="_self">COM_EASYQUICKICONS_TARGET_SELF</option>
+			<option value="_blank">COM_EASYQUICKICONS_TARGET_BLANK</option>
+			<option value="_parent">COM_EASYQUICKICONS_TARGET_PARENT</option>
+			<option value="_top">COM_EASYQUICKICONS_TARGET_TOP</option>
+		</field>
+		<field
+			name="description"
+			type="text"
+			label="COM_EASYQUICKICONS_DESC_LABEL"
+			description="COM_EASYQUICKICONS_DESC_LABEL_DESC"
+			size="70"
+			class="inputbox"
+		/>
+		<field name="ordering" type="ordering"
+			description="JFIELD_ORDERING_DESC"
+			label="JFIELD_ORDERING_LABEL"
+		/>
+		<field name="created_by" type="user"
+			label="JGLOBAL_FIELD_Created_by_Label" description="JGLOBAL_FIELD_CREATED_BY_DESC" />
+
+		<field name="created_by_alias" type="text"
+			label="JGLOBAL_FIELD_Created_by_alias_Label" description="JGLOBAL_FIELD_CREATED_BY_ALIAS_DESC"
+			class="inputbox" size="20" />
+		<field name="created_date" type="text" id="created_date" class="readonly"
+			label="COM_EASYQUICKICONS_FIELD_CREATED_DATE_LABEL" size="20" readonly="true" />
+
+		<field name="modified_date"
+			type="text" id="modified_date"
+			class="readonly"
+			label="COM_EASYQUICKICONS_FIELD_UPDATED_DATE_LABEL"
+			size="20"
+			readonly="true"
+		/>
+
+	</fieldset>
+	<fieldset name="accesscontrol">
+        <field name="asset_id" type="hidden" filter="unset" />
+        <field name="rules"
+                type="rules"
+                label="JFIELD_RULES_LABEL"
+                translate_label="false"
+                filter="rules"
+                validate="rules"
+                class="inputbox"
+                component="com_easyquickicons"
+                section="icons"
+        />
+    </fieldset>
+</form>

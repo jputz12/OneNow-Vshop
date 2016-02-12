@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.1" method="upgrade">
+	<name>com_easyquickicons</name>
+	<author>AwyneSoft</author>
+	<creationDate>May 7, 2013</creationDate>
+	<copyright>Copyright (C) 2010 AwyneSoft.com</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorEmail>support@awynesoft.com</authorEmail>
+	<authorUrl>http://www.awynesoft.com</authorUrl>
+	<version>3.2.2</version>
+	<description>COM_EASYQUICKICONS_XML_DESCRIPTION</description>
+	<scriptfile>script.php</scriptfile>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install_data.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall_data.sql</file>
+		</sql>
+	</uninstall>
+	<update> <!-- Runs on update; New in 2.5 -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	<media />
+	<files folder="site">
+		<filename>index.html</filename>
+	</files>
+	<administration>
+		<menu>com_easyquickicons</menu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>easyquickicons.php</filename>
+			<filename>index.html</filename>
+			<folder>assets</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>images</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB.com_easyquickicons.ini</language>
+			<language tag="en-GB">language/en-GB.com_easyquickicons.sys.ini</language>
+		</languages>
+	</administration>
+</extension>
